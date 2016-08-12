@@ -1,0 +1,47 @@
+<div ng-controller="AccountCtrl">
+
+    <div class="row">
+        <div class="col-sm-5">
+            <button type="submit" class="btn btn-primary" ng-click="findAll(1)">Update Accounts</button>
+            <button type="submit" class="btn btn-primary" ng-click="createAccount()">Create Account</button>
+        </div>
+
+        <div class="col-sm-7">
+            <span class="text-success" ng-show="successMessage">
+                <i class="fa fa-check"></i> {{successMessage}}
+            </span>
+        </div>
+
+    </div>
+
+    <hr>
+    <div class="row" ng-if="accounts.length > 0">
+        <div class="col-md-12">
+            <table class="table table-hover">
+                <thead>
+                <tr>
+                    <th class="col-md-2"> # ID</th>
+                    <th class="col-md-2"> Account Agency</th>
+                    <th class="col-md-2"> Account Number</th>
+                    <th class="col-md-2"> Balance</th>
+                    <th class="col-md-4"></th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr ng-repeat="account in accounts">
+                    <td>{{account.id}}</td>
+                    <td>{{account.agency}}</td>
+                    <td>{{account.number}}</td>
+                    <td>{{account.currentBalance}}</td>
+                    <td>
+                        <button class="btn btn-primary" ng-click="editAccount(account)">Edit</button>
+
+                        <button class="btn btn-danger" ng-click="removeAccount(account)">Delete</button>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+
+    </div>
+</div>

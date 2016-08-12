@@ -1,0 +1,7 @@
+node_modules/
+dist/
+.idea/
+*.iml
+public/bower_components/
+public/_dist/
+/bin/

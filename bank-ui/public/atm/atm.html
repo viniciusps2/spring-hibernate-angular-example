@@ -1,0 +1,54 @@
+<div ng-controller="AtmCtrl">
+
+    <div class="row">
+        <div class="col-sm-5">
+            <button type="submit" class="btn btn-primary" ng-click="findAll(1)"> Update ATMs</button>
+            <button type="submit" class="btn btn-primary" ng-click="createAtm()">Create ATM</button>
+        </div>
+        
+        <!-- Success message -->
+        <div class="col-sm-7">
+            <span class="text-success" ng-show="successMessage">
+                <i class="fa fa-check"></i> {{successMessage}}
+            </span>
+        </div>
+    </div>
+
+    <hr>
+    <div class="row" ng-if="atms.length > 0">
+        <div class="col-md-12">
+            <table class="table table-hover">
+                <thead>
+                <tr>
+                    <th class="col-md-1"> # ID</th>
+                    <th class="col-md-2"> ATM Agency</th>
+                    <th class="col-md-2"> ATM Number</th>
+                    <th class="col-md-2"> Address</th>
+                    <th class="col-md-1"> Status</th>
+                    <th class="col-md-1"> Balance</th>
+                    <th class="col-md-3"></th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr ng-repeat="atm in atms">
+                    <td>{{atm.id}}</td>
+                    <td>{{atm.agency}}</td>
+                    <td>{{atm.number}}</td>
+                    <td>{{atm.address}}</td>
+                    <td>{{atm.status}}</td>
+                    <td>{{atm.balance}}</td>
+                    <td>
+                        <button class="btn btn-info" ng-click="requestWithdraw(atm.id)">Withdraw</button>
+
+                        <button class="btn btn-primary" ng-click="editAtm(atm)">Edit</button>
+
+                        <button class="btn btn-danger" ng-click="removeAtm(atm)">Delete</button>
+
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+
+    </div>
+</div>
