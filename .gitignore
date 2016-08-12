@@ -1,0 +1,13 @@
+target
+bin
+.metadata
+.settings
+.classpath
+.project
+build
+logs
+logs/
+/local
+*.sublime-workspace
+_dist
+bank-ui/npm-debug.log
